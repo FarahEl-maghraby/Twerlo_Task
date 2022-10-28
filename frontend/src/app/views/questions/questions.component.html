@@ -1,0 +1,77 @@
+<h1 class="text-center mt-5" [hidden]="finish">Welcome {{ userName }}</h1>
+<form #wordForm="ngForm" class="container mt-5" (ngSubmit)="click(wordForm.value)" [hidden]="finish">
+  <div *ngFor="let item of questions | slice: startIndex:endIndex">
+    <h3>{{ item.word }}</h3>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="pos"
+        ngModel
+        id="noun"
+        value="noun"
+        required
+      />
+      <label class="form-check-label" for="noun">
+        noun
+      </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="pos"
+        id="adverb"
+        value="adverb"
+        ngModel
+        required
+      />
+      <label class="form-check-label" for="adverb">
+        adverb
+      </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="pos"
+        id="adjective"
+        value="adjective"
+        ngModel
+        required
+      />
+      <label class="form-check-label" for="adjective">
+        adjective
+      </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="pos"
+        id="verb"
+        value="verb"
+        ngModel
+        required
+      />
+      <label class="form-check-label" for="verb">
+        verb
+      </label>
+    </div>
+  </div>
+
+  <button
+   type="submit"
+  class="btn btn-sm btn-primary mt-2" 
+  [disabled]="wordForm.invalid" >Next</button>
+</form>
+
+<div class="progress m-5" [hidden]="progressBar">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [style.width]="progress+'%'">{{progress}}%</div>
+</div>
+
+<app-rank [rank]="rank" [hidden]="!finish"></app-rank>
+
+
+

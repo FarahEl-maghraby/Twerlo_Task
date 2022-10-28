@@ -1,0 +1,21 @@
+<h1 class="text-center mt-5">Welcome to Words Categorization App</h1>
+<form class="container" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      placeholder="Enter your name"
+      ngModel
+      #name="ngModel"
+      required
+    />
+    <div class="text-center errors" *ngIf="name.touched && name.invalid">
+    <div *ngIf="name.errors?.['required']">*Name is required*</div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
+</form>
