@@ -5,5 +5,5 @@ const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors())
 const wordsRouter = require('../routers/words.js')
-app.use(wordsRouter)
+app.use(wordsRouter) 
 app.listen(port,()=>console.log('Server is running'))
