@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,7 +17,7 @@ export class RankComponent implements OnInit {
    }
 
    /**
-    * try again function 
+    * try again function allow user to take quiz again by reloading the content of the component without refreshing the page
     */
    tryAgain() {
     let currentUrl = this.router.url;
