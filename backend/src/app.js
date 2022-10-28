@@ -7,3 +7,4 @@ app.use(cors())
 const wordsRouter = require('../routers/words.js')
 app.use(wordsRouter) 
 app.listen(port,()=>console.log('Server is running'))
+ 
